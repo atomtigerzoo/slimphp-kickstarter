@@ -1,0 +1,9 @@
+<?php
+
+/* + + + Copy this file to production.conf.php + + + */
+
+/**
+ * Set to true if in production mode
+ */
+
+return false;

@@ -1,0 +1,5 @@
+{
+  "browserSync": {
+    "proxyUrl": "https://some.dev.url"
+  }
+}

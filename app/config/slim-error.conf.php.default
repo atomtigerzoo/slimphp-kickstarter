@@ -1,0 +1,9 @@
+<?php
+
+/* + + + Copy this file to slim-error.conf.php + + + */
+
+/**
+ * Display errors
+ */
+
+return true;

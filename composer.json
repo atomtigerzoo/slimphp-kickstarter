@@ -1,0 +1,35 @@
+{
+    "name": "atomtigerzoo/slimphp-kickstarter",
+    "description": "A kickstarter for rapidly developing a SlimPHP application or website.",
+    "homepage": "https://github.com/atomtigerzoo/slimphp-kickstarter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henning Stein",
+            "email": "stein@atomtigerzoo.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.8",
+        "slim/flash": "^0.2.0",
+        "slim/csrf": "^0.8.1",
+        "slim/twig-view": "^2.2",
+        "monolog/monolog": "^1.22",
+        "illuminate/database": "^5.4",
+        "illuminate/pagination": "^5.4",
+        "kanellov/slim-twig-flash": "^0.2.0",
+        "robmorgan/phinx": "^0.7.0",
+        "cocur/slugify": "^2.5"
+    },
+    "require-dev": {
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DefineYourNamespaceHerePlease\\": "app/",
+            "Tests\\": "tests/"
+        }
+    },
+  "scripts": {
+        "test": "phpunit"
+  }
+}

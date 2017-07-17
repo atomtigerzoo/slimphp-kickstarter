@@ -1,0 +1,14 @@
+# Config
+app/config/*.conf.php
+#./gulpconfig.json
+
+# Vendors files
+**/bower_components/
+**/node_modules/
+/vendor/
+
+# Log files
+/logs/*
+!/logs/.keep
+
+# Server generated files

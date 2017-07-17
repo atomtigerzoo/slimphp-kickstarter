@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>{% if title %} {{ title|e }} - {% endif %}</title>
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  {% if metaDesc  %}<meta name="description" content="{{ metaDesc|e }}">{% endif %}
+  {% if not appInProduction %}
+    {% include "layouts/default.partial.styles.twig" %}
+  {% else %}
+    {% include "layouts/default.partial.styles.build.twig" %}
+  {% endif %}
+  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+</head>
+<body>
+
+  {% block content %}{% endblock %}
+  
+  {% if not appInProduction %}
+    {% include "layouts/default.partial.scripts.twig" %}
+  {% else %}
+    {% include "layouts/default.partial.scripts.build.twig" %}
+  {% endif %}
+
+</body>
+</html>
