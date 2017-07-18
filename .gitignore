@@ -1,6 +1,6 @@
 # Config
 app/config/*.conf.php
-./gulpconfig.json
+gulpconfig.json
 
 # Vendors files
 **/bower_components/
