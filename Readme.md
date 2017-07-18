@@ -13,8 +13,12 @@ babel transpiling, minification and so on.
   development url here. This will be used by BrowserSync for development.
 - Edit `package.json` (project name, details, etc).
 - Run `yarn install` to download and install all packages.
-- If everything went fine see *Gulp tasks* below for development/builds.
 - _Optional:_ Add `bower.json` and add packages to your liking.
+- Duplicate the `*.default` files inside `app/config/` and remove the `.default`
+  ending. Edit if needed. The database file is only needed if you want to use
+  MySQL in your project. Enable database usage in `app/dependencies.php` if so.
+- If everything went fine see *Gulp tasks* below for development/builds.
+- Browse to the above URL or use the browsersync URl to see your app.
 - Develop your app, install more yarn or bower packages.
 - Be happy and contribute if you like to help 😍 
 
