@@ -1,5 +1,5 @@
 {
   "browserSync": {
-    "proxyUrl": "https://some.dev.url"
+    "proxyUrl": "http://dev160-slimstarter.atzoo.de/"
   }
 }
