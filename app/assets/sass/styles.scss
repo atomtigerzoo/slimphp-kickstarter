@@ -1,14 +1,19 @@
+/**
+ * Load all your style sheets here
+ */
+
+//@import "partials/some-file";
+
 /* 
     Default styles
 */
-
 body{
   display: flex;
   flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   min-height: 100vh;
 }
 
 img{
   max-width: 100%;
 }
-
