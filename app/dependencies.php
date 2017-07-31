@@ -1,9 +1,13 @@
 <?php
-// DIC configuration
+/*
+  DIC configuration
+ */
 
 $container = $app->getContainer();
 
-// twig-view / Renderer
+/*
+  twig-view
+ */
 $container['view'] = function ($container) {
   $settings = $container->get('settings')['renderer'];
   
@@ -15,7 +19,8 @@ $container['view'] = function ($container) {
   // Instantiate and add Slim specific extensions
   $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
   $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
-  // Debug
+  
+  // Add debug to twig views
   $view->addExtension(new \Twig_Extension_Debug());
   // Add slugify
   $view->addExtension(new Cocur\Slugify\Bridge\Twig\SlugifyExtension(Cocur\Slugify\Slugify::create()));
@@ -33,8 +38,9 @@ $container['view'] = function ($container) {
   return $view;
 };
 
+
 /*
- * Define a 404 template for twig
+  Define a 404 template for the notFoundHandler
  */
 $container['notFoundHandler'] = function ($c) {
   return function ($request, $response) use ($c) {
@@ -42,8 +48,36 @@ $container['notFoundHandler'] = function ($c) {
   };
 };
 
-// Database / Eloquent
-/**
+
+/*
+  CSRF
+ */
+$container['csrf'] = function() {
+  return new \Slim\Csrf\Guard;
+};
+
+
+/*
+  Logging
+ */
+$container['logger'] = function() {
+  $logger = new \Monolog\Logger('appLogger');
+  $file_handler = new \Monolog\Handler\StreamHandler("../logs/app.log");
+  $logger->pushHandler($file_handler);
+  return $logger;
+};
+
+
+/*
+  Set piwik tracking id constant
+ */
+define('PIWIK_SITE_ID', $container->get('settings')['piwik_site_id']);
+
+
+/*
+  Database / Eloquent
+ */
+/*
 $container['db'] = function ($container) {
   $capsule = new \Illuminate\Database\Capsule\Manager;
   $capsule->addConnection($container['settings']['db']);
@@ -57,27 +91,12 @@ $container['db'] = function ($container) {
 $container->get("db");
 */
 
-// Flash messages
+
+/*
+  Flash messages
+ */
 /*
 $container['flash'] = function () {
   return new \Slim\Flash\Messages();
 };
 */
-
-// CSRF
-$container['csrf'] = function() {
-  return new \Slim\Csrf\Guard;
-};
-
-
-// Logging
-$container['logger'] = function() {
-  $logger = new \Monolog\Logger('appLogger');
-  $file_handler = new \Monolog\Handler\StreamHandler("../logs/app.log");
-  $logger->pushHandler($file_handler);
-  return $logger;
-};
-
-
-// Piwik tracking
-define('PIWIK_SITE_ID', $container->get('settings')['piwik_site_id']);
